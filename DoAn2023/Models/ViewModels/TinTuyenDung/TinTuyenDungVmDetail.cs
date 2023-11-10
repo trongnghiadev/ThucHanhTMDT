@@ -31,5 +31,6 @@ namespace DoAn2023.Models.ViewModels.TinTuyenDung
         public string KyNangLienQuan { get; set; }
         public string QuyenLoi { get; set; }
         public string HanNop { get; set; }
+        public string HinhAnh { get; set; }
     }
 }

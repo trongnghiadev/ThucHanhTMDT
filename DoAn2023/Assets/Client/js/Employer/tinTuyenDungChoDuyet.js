@@ -59,7 +59,7 @@
 $("body").on("click", "#datatablesSimple a.btn.btn-danger", function (event) {
     event.preventDefault();
     var member_delete = $(this).attr('data-user');
-    if (confirm("Bạn có muốn xóa tin tuyển dụng có Mã = " + member_delete + " này không?")) {
+    if (confirm("Bạn có muốn xóa bài báo này không?")) {
         $.ajax({
             url: "/nha-tuyen-dung/TinTuyenDung/Delete",
             type: "POST",

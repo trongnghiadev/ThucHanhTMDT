@@ -59,7 +59,7 @@
 $("body").on("click", "#datatablesSimple a.btn.btn-success", function (event) {
     event.preventDefault();
     var member_delete = $(this).attr('data-user');
-    if (confirm("Bạn có muốn duyệt bài viết có Mã = " + member_delete + " này không?")) {
+    if (confirm("Bạn có muốn duyệt bài viết này không?")) {
         $.ajax({
             url: "/Admin/BaiViet/Duyet",
             type: "POST",

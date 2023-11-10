@@ -9,6 +9,7 @@ using DoAn2023.Areas.Admin.Models;
 using DoAn2023.Models.EF;
 using DoAn2023.Models.ViewModels.Common;
 using DoAn2023.Models.ViewModels.TinTuyenDung;
+using System.IO;
 
 namespace DoAn2023.Models.DAL
 {
@@ -68,6 +69,7 @@ namespace DoAn2023.Models.DAL
                     MaNTD = ntd.PK_iMaNTD,
                     TenCongViec = item.sTenCongViec,
                     MoTa = ntd.sMoTa,
+                    HinhAnh = item.sHinhAnh,
                     DiaChiNTD = ntd.sDiaChi,
                     MucLuong = GetMucLuongByMa(item.FK_sMaMucLuong),
                     TenNTD = GetAuthorByIdTinTD(item.PK_iMaTTD),
@@ -314,6 +316,7 @@ namespace DoAn2023.Models.DAL
                     TenNTD = GetAuthorByIdTinTD(x.PK_iMaTTD),
                     AnhDaiDien = GetAnhDDByIdTinTD(x.PK_iMaTTD),
                     TenCongViec = x.sTenCongViec,
+                    HinhAnh = x.sHinhAnh,
                     DiaChi = GetDiaChiByMa(x.FK_sMaDiaChi),
                     LoaiCV = GetLoaiCVByMa(x.FK_sMaLoaiCV),
                     MucLuong = GetMucLuongByMa(x.FK_sMaMucLuong),
@@ -448,14 +451,25 @@ namespace DoAn2023.Models.DAL
             }
         }
 
-        public async Task<int> Create(TinTuyenDungCreate item, int idNguoiDung)
+        public async Task<int> Create(TinTuyenDungCreate item,HttpServerUtilityBase httpServer, int idNguoiDung)
         {
             try
             {
                 var check = await dbContext.tbl_NhaTuyenDung.FindAsync(idNguoiDung);
                 if (check == null) return 0;
+
+                if (item.Image != null && item.Image.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(item.Image.FileName);
+                    string extension = Path.GetExtension(item.Image.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    item.HinhAnh = "/Images/TinTuc/" + fileName;
+                    fileName = Path.Combine(httpServer.MapPath("~/Images/TinTuc/"), fileName);
+                    item.Image.SaveAs(fileName);
+                }
                 var member = new tbl_TinTuyenDung()
                 {
+
                     sTenCongViec = item.TenCongViec,
                     FK_iMaNTD = idNguoiDung,
                     FK_sMaCapBac = item.MaCapBac,
@@ -465,6 +479,7 @@ namespace DoAn2023.Models.DAL
                     FK_sMaMucLuong = item.MaMucLuong,
                     dNgayDang = DateTime.Now,
                     dHanNop = item.HanNop,
+                    sHinhAnh = item.HinhAnh,
                     bTrangThai = false,
                     iLuotXem = 0,
                     iSoLuong = item.SoLuong,
@@ -503,14 +518,24 @@ namespace DoAn2023.Models.DAL
             }
         }
 
-        public async Task<bool> EditTTD(TinTuyenDungEdit item, int idNguoiDung)
+        public async Task<bool> EditTTD(TinTuyenDungEdit item, HttpServerUtilityBase httpServer, int idNguoiDung)
         {
             try
             {
                 var role = dbContext.tbl_TaiKhoan.Find(idNguoiDung).FK_iMaQuyen;
                 var member = await dbContext.tbl_TinTuyenDung.Where(x=> x.PK_iMaTTD == item.MaTTD).SingleOrDefaultAsync();
                 if (member == null) return false;
-                if(role == CommonConstants.QUAN_TRI)
+                if (item.Image != null && item.Image.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(item.Image.FileName);
+                    string extension = Path.GetExtension(item.Image.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    item.HinhAnh = "/Images/TinTuc/" + fileName;
+                    fileName = Path.Combine(httpServer.MapPath("~/Images/TinTuc/"), fileName);
+                    item.Image.SaveAs(fileName);
+                    member.sHinhAnh = item.HinhAnh;
+                }
+                if (role == CommonConstants.QUAN_TRI)
                 {
                     member.sGhiChu = item.GhiChu;
                     member.bTrangThai = item.TrangThai;
@@ -518,6 +543,7 @@ namespace DoAn2023.Models.DAL
                 {
                     member.sTenCongViec = item.TenCongViec;
                     member.FK_sMaCapBac = item.MaCapBac;
+                    member.sHinhAnh = item.HinhAnh;
                     member.FK_sMaCN = item.MaCN;
                     member.FK_sMaDiaChi = item.MaDiaChi;
                     member.FK_sMaLoaiCV = item.MaLoaiCV;

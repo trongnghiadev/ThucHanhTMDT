@@ -64,7 +64,7 @@ namespace DoAn2023.Areas.NhaTuyenDung.Controllers
             if (ModelState.IsValid)
             {
                 var session = (UserLogin)Session[CommonConstants.EMPLOYER_SESSION];
-                var result = await dao.Create(item, session.Id);
+                var result = await dao.Create(item, Server, session.Id);
                 if (result > 0)
                 {
                     SetAlert("Tạo tin tuyển dụng thành công", "success");
@@ -90,7 +90,7 @@ namespace DoAn2023.Areas.NhaTuyenDung.Controllers
             if (ModelState.IsValid)
             {
                 var session = (UserLogin)Session[CommonConstants.EMPLOYER_SESSION];
-                var result = await dao.EditTTD(member, session.Id);
+                var result = await dao.EditTTD(member, Server, session.Id);
                 if (result)
                 {
                     SetAlert("Cập nhật thành công", "success");

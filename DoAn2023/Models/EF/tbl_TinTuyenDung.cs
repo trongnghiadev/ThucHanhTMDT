@@ -69,6 +69,9 @@ namespace DoAn2023.Models.EF
         [StringLength(500)]
         public string sGhiChu { get; set; }
 
+        [StringLength(500)]
+        public string sHinhAnh { get; set; }
+
         public bool? bTrangThai { get; set; }
 
         public virtual tbl_CapBac tbl_CapBac { get; set; }

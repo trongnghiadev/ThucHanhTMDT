@@ -37,7 +37,7 @@
                     <h4 class="header-title mb-0">Đăng bài báo</h4>
                 </div>
                 <div class="collapse pt-3 show">
-                    @using (Html.BeginForm("Create", "TinTuyenDung", FormMethod.Post))
+                    @using (Html.BeginForm("Create", "TinTuyenDung", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -51,7 +51,6 @@
                                 @Html.ValidationMessageFor(model => model.TenCongViec, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
                         <div class="form-group align-items-center row">
                             @Html.LabelFor(model => model.MaCapBac, "Tiêu đề", new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
@@ -72,10 +71,10 @@
                                 @Html.ValidationMessageFor(model => model.MaLoaiCV, "", new { @class = "text-danger" })
                             </div>
                             @Html.LabelFor(model => model.MaDiaChi, "Địa chỉ", new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
-                            @Html.DropDownListFor(model => model.MaDiaChi, new SelectList(listDiaChi, "PK_sMaDiaChi", "sTenDiaChi"), "-- Chọn địa chỉ --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true" })
-                            @Html.ValidationMessageFor(model => model.MaDiaChi, "", new { @class = "text-danger" })
-                        </div>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.MaDiaChi, new SelectList(listDiaChi, "PK_sMaDiaChi", "sTenDiaChi"), "-- Chọn địa chỉ --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true" })
+                                @Html.ValidationMessageFor(model => model.MaDiaChi, "", new { @class = "text-danger" })
+                            </div>
                         </div>
 
                         <div class="form-group align-items-center row">
@@ -85,15 +84,15 @@
                                 @Html.ValidationMessageFor(model => model.MaMucLuong, "", new { @class = "text-danger" })
                             </div>
                             @Html.LabelFor(model => model.GioiTinhYC, "Giới tính", new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
-                            @Html.DropDownListFor(model => model.GioiTinhYC, new List<SelectListItem>()
-                            {
-                                new SelectListItem() {Value = "Nam", Text = "Nam"},
-                                new SelectListItem() {Value = "Nữ", Text = "Nữ"},
-                                new SelectListItem() {Value = "Không yêu cầu", Text = "Không yêu cầu"}
-                            }, "-- Chọn giới tính yêu cầu --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true" })
-                            @Html.ValidationMessageFor(model => model.GioiTinhYC, "", new { @class = "text-danger" })
-                        </div>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.GioiTinhYC, new List<SelectListItem>()
+                                {
+                                    new SelectListItem() {Value = "Nam", Text = "Nam"},
+                                    new SelectListItem() {Value = "Nữ", Text = "Nữ"},
+                                    new SelectListItem() {Value = "Không yêu cầu", Text = "Không yêu cầu"}
+                                }, "-- Chọn giới tính yêu cầu --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true" })
+                                @Html.ValidationMessageFor(model => model.GioiTinhYC, "", new { @class = "text-danger" })
+                            </div>
                         </div>
 
                         <div class="form-group align-items-center row">
@@ -151,7 +150,13 @@
                                 @Html.ValidationMessageFor(model => model.HanNop, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
+                        <div class="form-group align-items-center row">
+                            @Html.LabelFor(model => model.HinhAnh, "Hình Ảnh", new { @class = "control-label col-md-2" })
+                            @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                            <div class="col-md-6">
+                                <input name="Image" type="file" accept="image/*" />
+                            </div>
+                        </div>
                         <div class="form-group align-items-center row mt-3">
                             <div class="col-md-2">
                                 @Html.ActionLink("Trở về", "Index", "BaiViet", null, new { @class = "btn btn-light" })

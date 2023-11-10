@@ -53,9 +53,15 @@ namespace DoAn2023.Models.ViewModels.TinTuyenDung
 
         [Required(ErrorMessage = "Chưa nhập hạn nộp")]
         public string HanNop { get; set; }
+
         public bool TrangThai { get; set; }
 
         [AllowHtml]
         public string GhiChu { get; set; }
+
+        [StringLength(500)]
+        public string HinhAnh { get; set; }
+
+        public HttpPostedFileBase Image { get; set; }
     }
 }

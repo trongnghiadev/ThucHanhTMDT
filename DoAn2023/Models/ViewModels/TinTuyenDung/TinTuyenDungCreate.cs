@@ -49,7 +49,11 @@ namespace DoAn2023.Models.ViewModels.TinTuyenDung
         [AllowHtml]
         public string QuyenLoi { get; set; }
 
-        [Required(ErrorMessage = "Chưa nhập hạn nộp")]
+        [StringLength(500)]
+        public string HinhAnh { get; set; }
+
+        public HttpPostedFileBase Image { get; set; }
+
         public DateTime? HanNop { get; set; }
     }
 }

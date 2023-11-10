@@ -675,6 +675,7 @@
     <Folder Include="Files\CV\" />
     <Folder Include="Images\Blogs\" />
     <Folder Include="Images\NhaTuyenDung\" />
+    <Folder Include="Images\TinTuc\" />
     <Folder Include="Images\UngVien\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CustomErrorUser\" />

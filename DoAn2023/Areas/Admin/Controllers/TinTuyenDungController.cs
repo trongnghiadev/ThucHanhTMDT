@@ -60,7 +60,7 @@ namespace DoAn2023.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var session = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
-                var result = await dao.EditTTD(member, session.Id);
+                var result = await dao.EditTTD(member, Server, session.Id);
                 if (result)
                 {
                     SetAlert("Cập nhật thành công", "success");

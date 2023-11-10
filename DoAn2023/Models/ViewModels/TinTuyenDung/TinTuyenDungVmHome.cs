@@ -20,5 +20,8 @@ namespace DoAn2023.Models.ViewModels.TinTuyenDung
         public string DiaChi { get; set; }
         public string NgayDang { get; set; }
         public string HanNop { get; set; }
+
+        public string HinhAnh { get; set; }
+
     }
 }

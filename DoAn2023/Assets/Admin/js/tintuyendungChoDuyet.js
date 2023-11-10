@@ -60,7 +60,7 @@
 $("body").on("click", "#datatablesSimple a.btn.btn-success", function (event) {
     event.preventDefault();
     var member_delete = $(this).attr('data-user');
-    if (confirm("Bạn có muốn duyệt tin tuyển dụng có Mã = " + member_delete + " này không?")) {
+    if (confirm("Bạn có muốn duyệt bài báo này không?")) {
         $.ajax({
             url: "/Admin/TinTuyenDung/Duyet",
             type: "POST",
