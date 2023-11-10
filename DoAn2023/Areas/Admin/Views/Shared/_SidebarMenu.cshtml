@@ -41,15 +41,15 @@
         <li>
             <a href="javascript: void(0);" class="waves-effect">
                 <i class="remixicon-layout-line"></i>
-                <span> Quản lý ứng viên </span>
+                <span> Quản lý người dùng </span>
                 <span class="menu-arrow"></span>
             </a>
             <ul class="nav-second-level" aria-expanded="false">
                 <li>
-                    <a href="@Url.Action("Index", "UngVien")">Danh sách ứng viên</a>
+                    <a href="@Url.Action("Index", "UngVien")">Danh sách người dùng</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Create","UngVien")">Thêm ứng viên</a>
+                    <a href="@Url.Action("Create","UngVien")">Thêm người dùng</a>
                 </li>
             </ul>
         </li>
@@ -57,7 +57,7 @@
         <li>
             <a href="javascript: void(0);" class="waves-effect">
                 <i class="remixicon-mail-open-line"></i>
-                <span> Quản lý tuyển dụng </span>
+                <span> Quản lý bài báo </span>
                 @if (tinChuaDuyet > 0)
                 {
                     <span class="badge badge-pink badge-pill float-right">@tinChuaDuyet</span>
@@ -69,13 +69,13 @@
             </a>
             <ul class="nav-second-level" aria-expanded="false">
                 <li>
-                    <a href="@Url.Action("Index","NhaTuyenDung")">Danh sách nhà tuyển dụng</a>
+                    <a href="@Url.Action("Index","NhaTuyenDung")">Danh sách nhà báo</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Create","NhaTuyenDung")">Thêm nhà tuyển dụng</a>
+                    <a href="@Url.Action("Create","NhaTuyenDung")">Thêm nhà báo</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","TinTuyenDung")">Danh sách tin tuyển dụng</a>
+                    <a href="@Url.Action("Index","TinTuyenDung")">Danh sách bài báo</a>
                 </li>
                 <li>
                     <a href="@Url.Action("TinChoDuyet","TinTuyenDung")" class="waves-effect">
@@ -83,7 +83,7 @@
                         {
                             <span class="badge badge-pink badge-pill float-right">@tinChuaDuyet</span>
                         }
-                        <span> Tin tuyển dụng chờ duyệt </span>
+                        <span> Bài báo chờ duyệt </span>
                     </a>
                 </li>
             </ul>
@@ -97,24 +97,24 @@
             </a>
             <ul class="nav-second-level" aria-expanded="false">
                 <li>
-                    <a href="@Url.Action("ChuyenNganh","DanhMuc")">Chuyên ngành</a>
+                    <a href="@Url.Action("ChuyenNganh","DanhMuc")">Lĩnh vực</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("CapBac","DanhMuc")">Cấp bậc</a>
+                    <a href="@Url.Action("CapBac","DanhMuc")">Tiêu đề</a>
                 </li>
                 <li>
                     <a href="@Url.Action("DiaChi","DanhMuc")">Địa chỉ</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("MucLuong","DanhMuc")">Mức lương</a>
+                    <a href="@Url.Action("MucLuong","DanhMuc")">Độ tuổi</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("LoaiCongViec","DanhMuc")">Loại công việc</a>
+                    <a href="@Url.Action("LoaiCongViec","DanhMuc")">Loại bài báo</a>
                 </li>
             </ul>
         </li>
 
-        <li>
+        @*<li>
             <a href="javascript: void(0);" class="waves-effect">
                 <i class="remixicon-pages-line"></i>
                 <span> Quản lý bài viết </span>
@@ -144,7 +144,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li>*@
     </ul>
 
 </div>

@@ -35,7 +35,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-header py-2">
-                    <h4 class="header-title mb-0">Đăng tin tuyển dụng</h4>
+                    <h4 class="header-title mb-0">Đăng bài báo</h4>
                 </div>
                 <div class="collapse pt-3 show">
                     @using (Html.BeginForm("Edit", "TinTuyenDung", FormMethod.Post))
@@ -47,25 +47,25 @@
                         @Html.HiddenFor(model => model.MaTTD)
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.TenCongViec, "Tên công việc", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.TenCongViec, "Tên bài báo", new { @class = "control-label col-md-2" })
                             <div class="col-md-6">
                                 @Html.TextAreaFor(model => model.TenCongViec, new { @class = "form-control", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.MaCapBac, "Cấp bậc", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.MaCapBac, "Tiêu đề", new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
                                 @Html.DropDownListFor(model => model.MaCapBac, new SelectList(listCapBac, "PK_sMaCapBac", "sTenCapBac"), "-- Chọn cấp bậc --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true", @readonly = "true" })
                             </div>
-                            @Html.LabelFor(model => model.MaCN, "Chuyên ngành", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.MaCN, "Lĩnh vực", new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
                                 @Html.DropDownListFor(model => model.MaCN, new SelectList(listChuyenNganh, "PK_sMaCN", "sTenCN"), "-- Chọn chuyên ngành --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.MaLoaiCV, "Loại công việc", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.MaLoaiCV, "Loại bài báo", new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
                                 @Html.DropDownListFor(model => model.MaLoaiCV, new SelectList(listLoaiCV, "PK_sMaLoaiCV", "sTenLoaiCV"), "-- Chọn hình thức làm việc --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true", @readonly = "true" })
                             </div>
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.MaMucLuong, "Mức lương", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.MaMucLuong, "Độ tuổi", new { @class = "control-label col-md-2" })
                             <div class="col-md-4">
                                 @Html.DropDownListFor(model => model.MaMucLuong, new SelectList(listMucLuong, "PK_sMaMucLuong", "sTenMucLuong"), "-- Chọn mức lương --", new { @class = "form-control text-box single-line selectpicker", @data_live_search = "true", @readonly = "true" })
                             </div>
@@ -92,49 +92,49 @@
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.DiaChiLamViec, "Địa chỉ làm việc", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.DiaChiLamViec, "Nơi đăng", new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextAreaFor(model => model.DiaChiLamViec, new { @class = "form-control" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.MoTaCongViec, "Mô tả công việc", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.MoTaCongViec, "Tóm tắt", new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextAreaFor(model => model.MoTaCongViec, new { @class = "form-control", id = "txtMoTa", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.YeuCauUngVien, "Yêu cầu ứng viên", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.YeuCauUngVien, "Giới thiệu", new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextAreaFor(model => model.YeuCauUngVien, new { @class = "form-control", id = "txtYeuCau", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.KyNangLienQuan, "Kỹ năng liên quan", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.KyNangLienQuan, "Nội dung", new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextAreaFor(model => model.KyNangLienQuan, new { @class = "form-control", id = "txtKyNang", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.QuyenLoi, "Quyền lợi", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.QuyenLoi, "Kết luận", new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextAreaFor(model => model.QuyenLoi, new { @class = "form-control", id = "txtQuyenLoi", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.SoLuong, "Số lượng tuyển", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SoLuong, "Số người viết", new { @class = "control-label col-md-2" })
                             <div class="col-md-6">
                                 @Html.TextBoxFor(model => model.SoLuong, new { @class = "form-control", @type = "number", @readonly = "true" })
                             </div>
                         </div>
 
                         <div class="form-group align-items-center row">
-                            @Html.LabelFor(model => model.HanNop, "Hạn nộp", new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.HanNop, "Hạn bài viết", new { @class = "control-label col-md-2" })
                             <div class="col-md-6">
                                 @Html.TextBoxFor(model => model.HanNop, new { @class = "form-control", @type = "datetime-local", @readonly = "true" })
                             </div>

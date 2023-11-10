@@ -16,7 +16,8 @@
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, null, new { @class = "error text-danger" })
                 <div class="login__form--input">
-                    @Html.LabelFor(model => model.Company_Name)
+                    @*@Html.LabelFor(model => model.Company_Name)*@
+                    <p><strong>Tên nhà báo</strong></p>
                     @Html.TextBoxFor(model => model.Company_Name, new { @placeholder = "Nhập tên công ty/tổ chức" })
                     @Html.ValidationMessageFor(model => model.Company_Name, "", new { @class = "text-danger" })
                 </div>

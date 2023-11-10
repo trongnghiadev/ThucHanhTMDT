@@ -37,7 +37,7 @@
 <div class="main__cv">
     <div class="main__cv--wrapper grid wide">
         <div class="main__cv--content row">
-            <div class="cv__item col l-6 m-12 c-12">
+            @*<div class="cv__item col l-6 m-12 c-12">
                 <div class="cv__item--wrapper">
                     <div class="cv__item--description">
                         <h2 style="color:#00b14f">Tạo CV</h2>
@@ -51,8 +51,8 @@
                         <img class="full_width" src="~/Assets/Client/img/create_cv.png" alt="Tạo mới CV">
                     </div>
                 </div>
-            </div>
-            <div class="cv__item col l-6 m-12 c-12">
+            </div>*@
+            @*<div class="cv__item col l-6 m-12 c-12">
                 <div class="cv__item--wrapper">
                     <div class="cv__item--description">
                         <h2 style="color:#00b14f">Sử dụng CV sẵn có</h2>
@@ -66,11 +66,10 @@
                         <img class="full_width" src="~/Assets/Client/img/upload_cv.png" alt="Upload CV của bạn">
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
-
 <div class="main__recruitment">
     <div class="main__recruitment--wrapper grid wide">
         <h1 class="main__recruitment--title main__item--title">
@@ -112,9 +111,50 @@
         </div>
     </div>
 </div>
+@*<div class="main__recruitment">
+    <div class="main__recruitment--wrapper grid wide">
+        <h1 class="main__recruitment--title main__item--title">
+            tin tuyển dụng mới nhất
+        </h1>
+        <div class="main__recruitment--content row">
+            @foreach (var item in model)
+            {
+                <div class="recruitment__item col l-4 m-6 c-12">
+                    <div class="recruitment__item--wrapper">
+                        <div class="recruitment__item--img">
+                            <img class="full_width" src="@item.anhdaidien" alt="logo nhà tuyển dụng">
+                            <div class="recruitment__item--time">@item.diachi</div>
+                        </div>
+                        <div class="recruitment__item--name">
+                            <h2 class="recruitment__name--title">
+                                <a href="/tin-tuyen-dung/@item.tieudettd-@item.mattd" class="recruitment__name--link text-line-1">
+                                    @item.tencongviec
+                                </a>
+                            </h2>
+                            <div class="recruitment__name--employer">
+                                <a href="/cong-ty/@item.tieudentd-@item.mantd" class="recruitment__employer--link text-line-1">
+                                    <span class="recruitment__icon"><i class="far fa-building"></i></span>
+                                    <span class="">@item.tenntd</span>
+                                </a>
+                            </div>
+                            <p class="recruitment__salary">
+                                <span class="recruitment__icon"><i class="fas fa-money-check-alt"></i></span>
+                                <span>@item.mucluong</span>
+                            </p>
+                            <p class="recruitment__address">
+                                <span class="recruitment__icon"><i class="fas fa-map-marked"></i></span>
+                                <span>@item.loaicv</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>*@
 
 <div class="main__employer">
-    <div class="main__employer--wrapper grid wide">
+    @*<div class="main__employer--wrapper grid wide">
         <h1 class="main__employer--title main__item--title">
             TOP nhà tuyển dụng hàng đầu
         </h1>
@@ -190,7 +230,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 
 <div class="main__blog">
