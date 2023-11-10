@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-header py-2">
-                    <h4 class="header-title mb-0">Cập nhật thông tin nhà tuyển dụng</h4>
+                    <h4 class="header-title mb-0">Cập nhật thông tin nhà Báo</h4>
                 </div>
                 <div class="collapse pt-3 show">
                     @using (Html.BeginForm("Info", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="form-group align-items-center row mt-5">
-                                @Html.LabelFor(model => model.TenNTD, "Tên nhà tuyển dụng", new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.TenNTD, "Tên nhà báo", new { @class = "control-label col-md-2" })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.TenNTD, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.TenNTD, "", new { @class = "text-danger" })
